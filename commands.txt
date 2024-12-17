@@ -1,0 +1,6 @@
+## criando projeto mvc
+dotnet new mvc --name myfinance-web-netcore
+
+dotnet build
+
+dotnet run
