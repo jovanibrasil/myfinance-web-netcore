@@ -1,6 +1,8 @@
 ## criando projeto mvc
 dotnet new mvc --name myfinance-web-netcore
-
+## build do projeto
 dotnet build
-
+## rodando projeto
 dotnet run
+## rodando database
+docker compose up -d --build
