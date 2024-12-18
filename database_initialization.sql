@@ -11,7 +11,7 @@ create table category(
 )
 
 create table financialtransaction(
-  	id int identity(1, 1) not null,
+	id int identity(1, 1) not null,
 	historic text null,
 	transactiondate date not null,
 	amount decimal(9, 2),
