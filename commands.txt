@@ -6,3 +6,5 @@ dotnet build
 dotnet run
 ## rodando database
 docker compose up -d --build
+## cria projeto de bibliotyeca de classes
+dotnet new classlib -n "myfinance-web-dotnet-infra"
