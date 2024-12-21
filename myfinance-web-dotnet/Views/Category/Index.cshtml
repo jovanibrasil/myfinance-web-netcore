@@ -1,0 +1,56 @@
+@{
+  ViewData["Title"] = "Personal financial expense category";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<button type="button" class="btn-block btn-primary" onclick="create()">
+  Create new category
+</button>
+
+</br>
+</br>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Id</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th>#</th>
+    <th>#</th>
+  </tr>
+
+  @{
+    foreach (var item in (List<CategoryModel>)ViewBag.ListCategories)
+    {
+              <tr>
+                <td>@item.id</td>
+                <td>@item.description</td>
+                <td>@item.type</td>
+                <td>
+                  <button type="button" class="btn btn-block btn-outline-warning"
+                    onclick="update(@item.id.ToString())">Editar</button>
+                  <button type="button" class="btn btn-block btn-outline-warning"
+                    onclick="remove(@item.id.ToString())">Excluir</button>
+                </td>
+                <td>
+
+                </td>
+              </tr>
+    }
+  }
+</table>
+
+<script>
+  function update(id) {
+    window.location.href = "../Category/Upsert/" + id;
+  }
+
+  function remove(id) {
+    window.location.href = "../Category/Remove/" + id;
+  }
+
+  function create() {
+    window.location.href = "../Category/Upsert";
+  }
+</script>

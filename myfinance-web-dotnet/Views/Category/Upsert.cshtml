@@ -1,0 +1,24 @@
+@model myfinance_web_dotnet.Models.CategoryModel;
+
+@{
+  ViewData["Title"] = "Create Personal financial expense category";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+  <form asp-controller="Category" asp-action="Upsert" method="post">
+    <input type="hidden" asp-for="id"/><br>
+
+    <label>Description</label><br>
+    <input type="text" asp-for="description"><br>
+    <br>
+
+    <label>Type:</label><br>
+    <label>@Html.RadioButtonFor(n => n.type, "D")Life Cost</label><br>
+    <label>@Html.RadioButtonFor(n => n.type, "I")Incoming</label><br>
+
+    <br><br>
+    <button type="submit" class="btn btn-block btn-success">Create</button>
+  </form>
+</div>

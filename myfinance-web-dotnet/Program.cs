@@ -1,4 +1,5 @@
 using myfinance_web_dotnet_infra;
+using myfinance_web_dotnet_service.interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<MyFinanceDbContext>();
+
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IFinancialTransactionService, FinancialTransactionService>();
 
 var app = builder.Build();
 
