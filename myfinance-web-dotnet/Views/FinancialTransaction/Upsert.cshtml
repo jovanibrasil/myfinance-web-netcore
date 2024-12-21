@@ -1,0 +1,36 @@
+@model myfinance_web_dotnet.Models.FinancialTransactionModel;
+
+@{
+  ViewData["Title"] = "Create Transaction";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+  <form asp-controller="FinancialTransaction" asp-action="Upsert" method="post">
+    <input type="hidden" asp-for="id" /><br>
+
+    <div class="form-group">
+      <label>Data</label><br>
+      <input type="date" class="form-control" asp-for="transactiondate" /><br>
+    </div>
+
+    <div class="form-group">
+      <label>Value</label><br>
+      <input type="text" class="form-control" asp-for="amount" step="0.01" /><br>
+    </div>
+
+    <div class="form-group">
+      <label>Historic</label><br>
+      <input type="text" class="form-control" asp-for="historic" /><br>
+    </div>
+
+    <div class="form-group">
+      <label>Type</label><br>
+      @Html.DropDownListFor(m => m.categoryid, Model.financialCategories, new { @class = "form-select" })
+    </div>
+
+
+    <button type="submit" class="btn btn-block btn-success">Save</button>
+  </form>
+</div>

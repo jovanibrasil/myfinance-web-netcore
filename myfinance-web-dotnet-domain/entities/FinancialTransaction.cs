@@ -9,7 +9,7 @@ public class FinancialTransaction
     public DateTime transactiondate { get; set; }
     public decimal amount { get; set; }
 
-    public string categoryid { get; set; }
+    public int categoryid { get; set; }
 
     public Category category { get; set; }
 

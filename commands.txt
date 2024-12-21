@@ -8,5 +8,7 @@ dotnet run
 docker compose up -d --build
 ## cria projeto de bibliotyeca de classes
 dotnet new classlib -n "myfinance-web-dotnet-infra"
-## stop açç running containers
+## stop all running containers
 docker stop $(docker ps -a -q)
+## modo watch
+dotnet watch run

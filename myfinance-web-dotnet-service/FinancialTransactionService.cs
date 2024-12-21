@@ -17,7 +17,7 @@ namespace myfinance_web_dotnet_service.interfaces
     {
       var financialTransaction = new FinancialTransaction() { id = id };
       _dbContext.Attach(financialTransaction);
-      _dbContext.Remove(_dbContext);
+      _dbContext.Remove(financialTransaction);
       _dbContext.SaveChanges();
     }
 

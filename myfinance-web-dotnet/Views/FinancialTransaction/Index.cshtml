@@ -1,11 +1,11 @@
 @{
-  ViewData["Title"] = "Personal financial expense category";
+  ViewData["Title"] = "Transactions";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <button type="button" class="btn-block btn-primary" onclick="create()">
-  Create new category
+  Create new transaction
 </button>
 
 </br>
@@ -14,19 +14,23 @@
 <table class="table table-bordered">
   <tr>
     <th>Id</th>
-    <th>Description</th>
-    <th>Type</th>
+    <th>Historic</th>
+    <th>Transaction Date</th>
+    <th>Amount</th>
+    <th>Category</th>
     <th>#</th>
     <th>#</th>
   </tr>
 
   @{
-    foreach (var item in (List<CategoryModel>)ViewBag.ListCategories)
+    foreach (var item in (List<FinancialTransactionModel>)ViewBag.ListTransactions)
     {
       <tr>
         <td>@item.id</td>
-        <td>@item.description</td>
-        <td>@item.type</td>
+        <td>@item.historic</td>
+        <td>@item.transactiondate</td>
+        <td>@item.amount</td>
+        <td>@item.categoryid</td>
         <td>
           <button type="button" class="btn btn-block btn-outline-warning"
             onclick="update(@item.id.ToString())">Editar</button>
@@ -43,14 +47,14 @@
 
 <script>
   function update(id) {
-    window.location.href = "../Category/Upsert/" + id;
+    window.location.href = "../FinancialTransaction/Upsert/" + id;
   }
 
   function remove(id) {
-    window.location.href = "../Category/Remove/" + id;
+    window.location.href = "../FinancialTransaction/Remove/" + id;
   }
 
   function create() {
-    window.location.href = "../Category/Upsert";
+    window.location.href = "../FinancialTransaction/Upsert";
   }
 </script>
